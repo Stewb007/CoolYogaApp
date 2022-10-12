@@ -71,5 +71,25 @@ navbar__menu {
 .navbar__btn {
     display: flex;
     justify-content: center;
-    
+    align-items: center;
+    padding: 0 1rem;
+    width: 100%;
 }
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    padding: 10px 20px;
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    background: #f77062;
+    color: #fff;
+}
+
+/* 19:55 Time */
+
