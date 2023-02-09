@@ -6,7 +6,7 @@
 }
 
 .navbar{
-    background: #131313;
+    background: #ffffff;
     height: 80px;
     display: flex;
     justify-content: center;
@@ -29,8 +29,8 @@
 }
 
 #navbar__logo {
-    background-color: #ff8177;
-    background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
+    background-color: #ffffff;
+    background-image: linear-gradient(to top, #ffffff 0%, #ffffff 100%);
     background-size: 100%;
     -webkit-background-clip: text;
     -moz-background-clip: text;
@@ -59,7 +59,7 @@
 }
 
 .navbar__links {
-    color: #fff;
+    color: #131313;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -87,18 +87,18 @@
     border: none;
     outline: none;
     border-radius: 4px;
-    background: #f77062;
+    background: #004225;
     color: #fff;
 }
 
 .button:hover {
-    background: #4837ff;
+    background: #26ae58;
     transition: all 0.3s ease;
 
 }
 
 .navbar__links:hover {
-    color: #f77062;
+    color: #26ae58;
     transition: all 0.3s ease;
 }
 
@@ -123,11 +123,11 @@
         transition: all 0.5s ease;
         height: 50vh;
         z-index: -1;
-        background: #131313;
+        background: #ffffff;
     }
 
     .navbar__menu.active {
-        background: #131313;
+        background: #ffffff;
         top: 100%;
         opacity: 1;
         transition: all 0.5s ease;
@@ -145,7 +145,7 @@
         height: 3px;
         margin: 5px auto;
         transition: all 0.3s ease-in-out;
-        background: #fff;
+        background: #004225;
     }
 
     .navbar__item {
@@ -200,7 +200,7 @@
 /* Hero Section CSS */
 
 .main {
-    background-color:#141414;
+    background-color:#b0babc;
 }
 
 .main__container {
@@ -210,7 +210,7 @@
     justify-self: center;
     margin: 0 auto;
     height: 90vh;
-    background-color: #141414;
+    background-color: #b0babc;
     z-index: 1;
     width: 100%;
     max-width: 1300px;
@@ -219,8 +219,8 @@
 
 .main__content h1 {
     font-size: 4rem;
-    background-color: #ff8177;
-    background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
+    background-color: #f8f8f8;
+    background-image: linear-gradient(to top, #26ae58 0%, #004225 100%);
     background-size: 100%;
     -webkit-background-clip: text;
     -moz-background-clip: text;
@@ -230,8 +230,8 @@
 
 .main__content h2 {
     font-size: 4rem;
-    background-color: #ff8177;
-    background-image: linear-gradient(to top, #e82052 0%, #f37b57 100%);
+    background-color: #f8f8f8;
+    background-image: linear-gradient(to top, #26ae58 0%, #004225 100%);
     background-size: 100%;
     -webkit-background-clip: text;
     -moz-background-clip: text;
@@ -248,7 +248,7 @@
 
 .main__btn {
     font-size: 1rem;
-    background-image: linear-gradient(to top, #f77062 0%, #fe5196 100%);
+    background-image: linear-gradient(to top, #26ae58 0%, #004225 100%); 
     padding: 14px 32px;
     border: none;
     border-radius: 4px;
@@ -274,7 +274,7 @@
     left: 0;
     width: 0;
     height: 100%;
-    background: #4837ff;
+    background: #26ae58;
     transition: all 0.35s;
     border-radius: 4px;
 }
@@ -353,7 +353,7 @@
 
 /* Services Section CSS */
 .services {
-    background: #141414;
+    background: #b0babc;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -361,15 +361,15 @@
 }
 
 .services h1 {
-    background-color: #ff8177;
+    background-color: #26ae58 ;
     background-image: linear-gradient(
         to right, 
-        #ff8177 0%,
-        #ff867a 0%, 
+        #26ae58  0%,
+        /*  #ff867a 0%, 
         #ff8c7f 21%, 
         #f99185 52%, 
-        #cf556c 78%,
-        #b12a5b 100%
+        #cf556c 78%, */
+        #004225 100%
     );
     background-size: 100%;
     margin-bottom: 5rem;
@@ -399,7 +399,7 @@
             rgba(0, 0 , 0 ,0) 0%, 
             rgba(17,17,17,0.6) 100%
         ), 
-        url('/images/pic2.jpg');
+        url('/images/truckpic2.jpg');
     background-size: cover;
     position: relative;
     color: #fff;
@@ -411,7 +411,7 @@
             rgba(0 , 0 , 0 ,0) 0%, 
             rgba(17 ,17 ,17 ,0.6) 100%
         ), 
-        url('/images/pic3.jpg');
+        url('/images/truckpic6.jpg');
  }
 
  .services h2 {
@@ -432,7 +432,7 @@
     border: none;
     outline: none;
     border-radius: 4px;
-    background: #f77062;
+    background: #004225 ;
     position: absolute;
     top: 440px;
     left: 30px;
@@ -474,7 +474,7 @@
 /* Footer CSS */ 
 
 .footer__container {
-    background-color: #141414;
+    background-color: #b0babc;
     padding: 5rem 0;
     display: flex;
     flex-direction: column;
