@@ -266,6 +266,12 @@
     color: #fff;
     text-decoration: none;
 }
+.main__btn b {
+    position: relative;
+    z-index: 2;
+    color: #1acc26;
+    text-decoration: none;
+}
     /* Button Slider*/
 .main__btn:after {
     position: absolute;
@@ -345,6 +351,168 @@
     }
     
     .main__btn {
+        padding: 12px 36px;
+        margin: 2.5rem 0;
+    }
+}
+
+/* Text Sections */
+
+.text {
+    background-color:#b0babc;
+}
+
+.text__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-self: center;
+    margin: 0 auto;
+    height: 90vh;
+    background-color: #b0babc;
+    z-index: 1;
+    width: 100%;
+    max-width: 1300px;
+    padding: 0 50px;
+}
+
+.text__content h1 {
+    font-size: 4rem;
+    background-color: #f8f8f8;
+    background-image: linear-gradient(to top, #26ae58 0%, #004225 100%);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+}
+
+.text__content h2 {
+    font-size: 4rem;
+    background-color: #f8f8f8;
+    background-image: linear-gradient(to top, #26ae58 0%, #004225 100%);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+}
+
+.text__content p {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.text__btn {
+    font-size: 1rem;
+    background-image: linear-gradient(to top, #26ae58 0%, #004225 100%); 
+    padding: 14px 32px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    margin-top: 2rem;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.35s;
+    outline: none;
+}
+
+.text__btn a {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    text-decoration: none;
+}
+
+.text__btn b {
+    position: relative;
+    z-index: 2;
+    color: #13b942;
+    text-decoration: none;
+}
+    /* Text Button Slider*/
+.text__btn:after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #26ae58;
+    transition: all 0.35s;
+    border-radius: 4px;
+}
+
+.text__btn:hover {
+    color: #fff;
+}
+
+.text__btn:hover:after {
+    width: 100%;
+}
+
+.text_img--container {
+    text-align: center;
+}
+
+#text__img {
+    height: 80%;
+    width: 80%;
+}
+
+
+/* Text Mobile Responsive */
+@media screen and (max-width: 768px) {
+    .text__container {
+        display: grid;
+        grid-template-columns: auto;
+        align-items: center;
+        justify-self: center;
+        width: 100%;
+        margin: 0 auto;
+        height: 90vh;
+    }
+
+    .text__content {
+        text-align: center;
+
+        margin-bottom: 4rem;
+    }
+
+    .text__content h1 {
+        font-size: 2.5rem;
+        margin-top: 2rem;
+    }
+
+    .text__content h2 {
+        font-size: 3rem;
+    }
+
+    .text__content p {
+        margin-top: 1rem;
+        font-size: 1.5rem;
+    }
+   
+}
+
+@media screen and (max-width: 480px) {
+    .text__content h1 {
+        font-size: 2rem;
+        margin-top: 3rem;
+    }
+
+    .text__content h2 {
+        font-size: 2rem;
+    }
+
+    .text__content p {
+        margin-top: 2rem;
+        font-size: 1.5rem;
+    }
+    
+    .text__btn {
         padding: 12px 36px;
         margin: 2.5rem 0;
     }
