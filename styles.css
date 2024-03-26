@@ -98,7 +98,7 @@
 }
 
 .navbar__links:hover {
-    color: #00326a;
+    color: #5593DC;
     transition: all 0.3s ease;
 }
 
@@ -531,7 +531,7 @@
 
 /* Services Section CSS */
 .services {
-    background: #b0babc;
+    background: #141414;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -539,15 +539,15 @@
 }
 
 .services h1 {
-    background-color: #26ae58 ;
+    background-color: #5593DC ;
     background-image: linear-gradient(
         to right, 
-        #26ae58  0%,
+        #5593DC  0%,
         /*  #ff867a 0%, 
         #ff8c7f 21%, 
         #f99185 52%, 
         #cf556c 78%, */
-        #004225 100%
+        #00326a 100%
     );
     background-size: 100%;
     margin-bottom: 5rem;
@@ -577,7 +577,7 @@
             rgba(0, 0 , 0 ,0) 0%, 
             rgba(17,17,17,0.6) 100%
         ), 
-        url('/images/truckpic2.jpg');
+        url('/images/yogapic1.jpg');
     background-size: cover;
     position: relative;
     color: #fff;
@@ -589,7 +589,7 @@
             rgba(0 , 0 , 0 ,0) 0%, 
             rgba(17 ,17 ,17 ,0.6) 100%
         ), 
-        url('/images/truckpic6.jpg');
+        url('/images/yogapic2.jpg');
  }
 
  .services h2 {
