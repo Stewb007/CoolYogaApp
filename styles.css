@@ -6,7 +6,7 @@
 }
 
 .navbar{
-    background: #ffffff;
+    background: #131313;
     height: 80px;
     display: flex;
     justify-content: center;
@@ -29,8 +29,8 @@
 }
 
 #navbar__logo {
-    background-color: #ffffff;
-    background-image: linear-gradient(to top, #ffffff 0%, #ffffff 100%);
+    background-color: #5593DC;
+    background-image: linear-gradient(to top, #00326a 0%, #5593DC 100%);
     background-size: 100%;
     -webkit-background-clip: text;
     -moz-background-clip: text;
@@ -59,7 +59,7 @@
 }
 
 .navbar__links {
-    color: #131313;
+    color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -87,18 +87,18 @@
     border: none;
     outline: none;
     border-radius: 4px;
-    background: #004225;
+    background: #5593DC;
     color: #fff;
 }
 
 .button:hover {
-    background: #26ae58;
+    background: #00326a;
     transition: all 0.3s ease;
 
 }
 
 .navbar__links:hover {
-    color: #26ae58;
+    color: #00326a;
     transition: all 0.3s ease;
 }
 
@@ -123,11 +123,11 @@
         transition: all 0.5s ease;
         height: 50vh;
         z-index: -1;
-        background: #ffffff;
+        background: #131313;
     }
 
     .navbar__menu.active {
-        background: #ffffff;
+        background: #131313;
         top: 100%;
         opacity: 1;
         transition: all 0.5s ease;
@@ -145,7 +145,7 @@
         height: 3px;
         margin: 5px auto;
         transition: all 0.3s ease-in-out;
-        background: #004225;
+        background: #5593DC;
     }
 
     .navbar__item {
