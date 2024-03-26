@@ -1,0 +1,1 @@
+A small app for internal use for a Yoga Studio. Used to manage finances and book coaching sessions etc.
