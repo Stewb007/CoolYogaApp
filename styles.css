@@ -29,7 +29,7 @@
 }
 
 #navbar__logo {
-    background-color: #13b942;
+    background-color: #5593DC;
     background-image: linear-gradient(to top, #00326a 0%, #5593DC 100%);
     background-size: 100%;
     -webkit-background-clip: text;
@@ -59,7 +59,7 @@
 }
 
 .navbar__links {
-    color: #ffff00;
+    color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -200,7 +200,7 @@
 /* Hero Section CSS */
 
 .main {
-    background-color:#141414;
+    background-color:#131313;
 }
 
 .main__container {
@@ -210,7 +210,7 @@
     justify-self: center;
     margin: 0 auto;
     height: 90vh;
-    background-color: #141414;
+    background-color: #131313;
     z-index: 1;
     width: 100%;
     max-width: 1300px;
@@ -362,7 +362,7 @@
 /* Text Sections */
 
 .text {
-    background-color:#b0babc;
+    background-color:#131313;
 }
 
 .text__container {
@@ -372,7 +372,7 @@
     justify-self: center;
     margin: 0 auto;
     height: 90vh;
-    background-color: #b0babc;
+    background-color: #131313;
     z-index: 1;
     width: 100%;
     max-width: 1300px;
@@ -382,7 +382,7 @@
 .text__content h1 {
     font-size: 4rem;
     background-color: #f8f8f8;
-    background-image: linear-gradient(to top, #26ae58 0%, #004225 100%);
+    background-image: linear-gradient(to top, #5593DC 0%, #00326a 100%);
     background-size: 100%;
     -webkit-background-clip: text;
     -moz-background-clip: text;
@@ -393,7 +393,7 @@
 .text__content h2 {
     font-size: 4rem;
     background-color: #f8f8f8;
-    background-image: linear-gradient(to top, #26ae58 0%, #004225 100%);
+    background-image: linear-gradient(to top, #5593DC 0%, #00326a 100%);
     background-size: 100%;
     -webkit-background-clip: text;
     -moz-background-clip: text;
@@ -417,7 +417,7 @@
 
 .text__btn {
     font-size: 1rem;
-    background-image: linear-gradient(to top, #26ae58 0%, #004225 100%); 
+    background-image: linear-gradient(to top, #5593DC 0%, #00326a 100%); 
     padding: 14px 32px;
     border: none;
     border-radius: 4px;
@@ -439,7 +439,7 @@
 .text__btn b {
     position: relative;
     z-index: 2;
-    color: #13b942;
+    color: #5593DC;
     text-decoration: none;
 }
     /* Text Button Slider*/
@@ -450,7 +450,7 @@
     left: 0;
     width: 0;
     height: 100%;
-    background: #26ae58;
+    background: #5593DC;
     transition: all 0.35s;
     border-radius: 4px;
 }
@@ -531,7 +531,7 @@
 
 /* Services Section CSS */
 .services {
-    background: #141414;
+    background: #131313;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -610,7 +610,7 @@
     border: none;
     outline: none;
     border-radius: 4px;
-    background: #004225 ;
+    background: #00326a ;
     position: absolute;
     top: 440px;
     left: 30px;
@@ -652,7 +652,7 @@
 /* Footer CSS */ 
 
 .footer__container {
-    background-color: #b0babc;
+    background-color: #131313;
     padding: 5rem 0;
     display: flex;
     flex-direction: column;
