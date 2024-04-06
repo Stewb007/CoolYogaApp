@@ -81,6 +81,9 @@ if(isset($_POST["delete-submit"]))
 <html>
 <head>
     <title>Cool Yoga app database</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -113,6 +116,47 @@ if(isset($_POST["delete-submit"]))
             return true;
         }
     </script>
+    <head>
+    <title>Cool Yoga app database</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Importing fontawesome styles */
+        @import url('https://kit-free.fontawesome.com/releases/latest/css/free.min.css');
+        
+        /* Setting font-family for all text */
+        body, button, input, select, textarea {
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        /* Set background color to black and text color to white */
+        body {
+            background-color: #141414;
+            color: white;
+        }
+        .add-button {
+            background-color: #007bff; /* Blue color */
+            color: white;
+            border: none;
+            padding: 15px 30px; /* Larger padding for bigger button */
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px; /* Larger font size */
+            margin: 10px 2px; /* Increased margin */
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s ease; /* Smooth transition effect */
+        }
+
+        /* Hover effect for the add button */
+        .add-button:hover {
+            background-color: #004080; /* Darker blue color on hover */
+        }
+    </style>
+    <!-- Font Awesome script -->
+    <script src="https://kit.fontawesome.com/bbdcfd916b.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <br />
