@@ -130,7 +130,7 @@ if(isset($_POST["delete-submit"]))
             font-family: 'Roboto', sans-serif;
         }
         
-        /* Set background color to black and text color to white */
+        /* Set background color to black and text color to white a*/
         body {
             background-color: #141414;
             color: white;
