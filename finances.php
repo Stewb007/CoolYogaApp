@@ -138,7 +138,36 @@ if (isset($_POST["delete-expense-submit"])) {
     }
 }
 
+if (($handle = fopen("expenses.csv", "r")) !== FALSE) {
+    // Skip the header row
+    fgetcsv($handle);
+
+    $paidTotal = 0;
+    $notPaidTotal = 0;
+
+    // Loop through each row in the CSV
+    while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+        // If the 'hasPaid' column is 'Y', add the 'Amount' to the 'Paid' total
+        if ($data[2] == 'Y') {
+            $paidTotal += $data[3];
+        }
+        // If the 'hasPaid' column is 'N', add the 'Amount' to the 'Not Paid' total
+        else if ($data[2] == 'N') {
+            $notPaidTotal += $data[3];
+        }
+    }
+
+    // Close the CSV file
+    fclose($handle);
+
+    // Prepare the $pie_chart_data array
+    $pie_chart_data = [
+        ['Paid (Y)', $paidTotal],
+        ['Not Paid (N)', $notPaidTotal]
+    ];
+}
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -150,6 +179,9 @@ if (isset($_POST["delete-expense-submit"])) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.20/c3.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.20/c3.min.js"></script>
     <script>
         function showForm() {
             document.getElementById('add-button').style.display = 'none';
@@ -346,8 +378,45 @@ if (isset($_POST["delete-expense-submit"])) {
             </form>
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-12" style="margin-top: 50px;">
+            <h3 align="center">Expense Proportion</h3>
+            <div id="pie-chart"></div>
+        </div>
+    </div>
 </div>
+
+<script>
+window.onload = function() {
+    var pieChartData = <?php echo json_encode($pie_chart_data); ?>;
+
+    var pie = c3.generate({
+        bindto: '#pie-chart',
+        data: {
+            columns: pieChartData,
+            type: 'pie',
+            names: {
+                'Paid (Y)': 'Yes',
+                'Not Paid (N)': 'No'
+            }
+        },
+        tooltip: {
+            format: {
+                title: function (d) { 
+                    var id = pie.data()[0].ids[d];
+                    return id === 'Paid (Y)' ? 'Yes' : 'No'; 
+                },
+                value: function (value, ratio, id) {
+                    var format = d3.format(',');
+                    return format(value);
+                }
+            }
+        },
+        onrendered: function () {
+            d3.selectAll("#pie-chart text").style("fill", "#fff").style("font-weight", "bold");
+        }
+    });
+}
+</script>
 </body>
 </html>
-
-
