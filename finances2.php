@@ -5,10 +5,10 @@ $name = '';
 $email = '';
 $subject = '';
 $message = '';
-$balance = 0;
-$classes = 0;
+$balance = '';
+$classes = '';
 $category = '';
-$payed = 1;
+$payed = '';
 
 function clean_text($string)
 {
@@ -86,17 +86,17 @@ if (file_exists('expenses.csv') && filesize('expenses.csv') > 0) {
     $expenses_data = [];
 }
 
-if (isset($_POST["submit"])) {
-    if (empty($_POST["name"]) || empty($_POST["category"]) || empty($_POST["payed"]) || empty($_POST["fee"])) {
-        $error .= '<p><label class="text-danger">All fields are required</label></p>';
+if (isset($_POST["submit-expense"])) {
+    if (empty($_POST["name"]) || empty($_POST["category"]) || empty($_POST["payed"]) || empty($_POST["balance"])) {
+        $error .= '<p><label class="text-danger">All fields are required to add</label></p>';
     } else {
         $name = clean_text($_POST["name"]);
         $category = clean_text($_POST["category"]);
         $payed = clean_text($_POST["payed"]);
-        $fee = clean_text($_POST["fee"]);
+        $balance = clean_text($_POST["balance"]);
 
         $expenses_csv = fopen("expenses.csv", "a");
-        $expense_data = array($name, $category, $payed, $fee);
+        $expense_data = array($name, $category, $payed, $balance);
         fputcsv($expenses_csv, $expense_data);
         fclose($expenses_csv);
 
@@ -106,12 +106,12 @@ if (isset($_POST["submit"])) {
         $name = '';
         $category = '';
         $payed = '';
-        $fee = '';
+        $balance = '';
         $error = '<label class="text-success">Expense Added Successfully!</label>';
     }
 }
 
-if (isset($_POST["delete-submit"])) {
+if (isset($_POST["delete-expense-submit"])) {
     if (isset($_POST['delete']) && !empty($_POST['delete'])) {
         $delete_rows = $_POST['delete'];
         $new_expenses_data = [];
@@ -154,6 +154,11 @@ if (isset($_POST["delete-submit"])) {
         function showForm() {
             document.getElementById('add-button').style.display = 'none';
             document.getElementById('form-container').style.display = 'block';
+        }
+
+        function showExpenseForm() {
+            document.getElementById('add-expense-button').style.display = 'none';
+            document.getElementById('form-expense-container').style.display = 'block';
         }
 
         function toggleCheckbox(element) {
@@ -265,13 +270,13 @@ if (isset($_POST["delete-submit"])) {
                 </body>
             </table>
             <div align="center">
-                <button type="submit" name="delete-submit" class="btn btn-danger">Delete Expense</button>
+                <button type="submit" name="delete-expense-submit" class="btn btn-danger">Delete Expense</button>
             </div>
             <?php echo $error; ?>
         </form>
     </div>
-    <div id="add-button" align="center">
-        <button class="btn btn-info" onclick="showForm()">Add Expense</button>
+    <div id="add-expense-button" align="center">
+        <button class="btn btn-info" onclick="showExpenseForm()">Add Expense</button>
     </div>
     <div id="form-container" class="col-md-6" style="display: none;">
         <form method="post">
@@ -299,7 +304,7 @@ if (isset($_POST["delete-submit"])) {
             </div>
         </form>
     </div>
-    <div id="form-container" class="col-md-6" style="display: none;">
+    <div id="form-expense-container" class="col-md-6" style="display: none;">
         <form method="post">
             <h3 align="center">Expense</h3>
             <br />
@@ -310,18 +315,18 @@ if (isset($_POST["delete-submit"])) {
             </div>
             <div class="form-group">
                 <label>Enter Category of Expense</label>
-                <input type="text" name="expense" class="form-control" placeholder="Enter Category" value="<?php echo $email; ?>" />
+                <input type="text" name="expense" class="form-control" placeholder="Enter Category" value="<?php echo $category; ?>" />
             </div>
             <div class="form-group">
-                <label>Did you pay? Type in 0 for No and 1 for Yes</label>
-                <input type="text" name="category" class="form-control" placeholder="Enter 0 or 1" value="<?php echo $subject; ?>" />
+                <label>Did you pay?</label>
+                <input type="text" name="category" class="form-control" placeholder="Enter Y or N" value="<?php echo $payed; ?>" />
             </div>
             <div class="form-group">
                 <label>Enter amount you payed</label>
-                <textarea name="message" class="form-control" placeholder="Enter Amount"><?php echo $message; ?></textarea>
+                <textarea name="message" class="form-control" placeholder="Enter Amount"><?php echo $balance; ?></textarea>
             </div>
             <div class="form-group" align="center">
-                <input type="submit" name="submit" class="btn btn-info" value="Submit" />
+                <input type="submit" name="submit-expense" class="btn btn-info" value="Submit" />
             </div>
         </form>
     </div>
