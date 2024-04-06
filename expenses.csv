@@ -1,0 +1,9 @@
+Electricity,Utility,Y,50
+Hello,World,Y,50
+"Hydro bill",Utility,N,100
+Internet,Utility,Y,80
+Groceries,Food,Y,150
+"Phone bill",Utility,Y,60
+"Car Insurance",Insurance,N,200
+Gasoline,Transportation,Y,70
+Rent,Household,N,1200
