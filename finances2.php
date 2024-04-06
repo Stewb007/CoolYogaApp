@@ -9,6 +9,7 @@ $amount = '';
 $classes = '';
 $category = '';
 $payed = '';
+$expense_error = '';
 
 function clean_text($string)
 {
@@ -88,7 +89,7 @@ if (file_exists('expenses.csv') && filesize('expenses.csv') > 0) {
 
 if (isset($_POST["submit-expense"])) {
     if (empty($_POST["name"]) || empty($_POST["category"]) || empty($_POST["payed"]) || empty($_POST["amount"])) {
-        $error .= '<p><label class="text-danger">All fields are required to add</label></p>';
+        $expense_error .= '<p><label class="text-danger">All fields are required to add</label></p>';
     } else {
         $name = clean_text($_POST["name"]);
         $category = clean_text($_POST["category"]);
@@ -107,7 +108,7 @@ if (isset($_POST["submit-expense"])) {
         $category = '';
         $payed = '';
         $amount = '';
-        $error = '<label class="text-success">Expense Added Successfully!</label>';
+        $expense_error = '<label class="text-success">Expense Added Successfully!</label>';
     }
 }
 
@@ -134,7 +135,7 @@ if (isset($_POST["delete-expense-submit"])) {
         header("Location: {$_SERVER['REQUEST_URI']}");
         exit;
     } else {
-        $error = '<label class="text-danger">Please select at least one row to delete</label>';
+        $expense_error = '<label class="text-danger">Please select at least one row to delete</label>';
     }
 }
 
@@ -272,7 +273,7 @@ if (isset($_POST["delete-expense-submit"])) {
             <div align="center">
                 <button type="submit" name="delete-expense-submit" class="btn btn-danger">Delete Expense</button>
             </div>
-            <?php echo $error; ?>
+            <?php echo $expense_error; ?>
         </form>
     </div>
     <div id="add-expense-button" align="center">
@@ -308,7 +309,7 @@ if (isset($_POST["delete-expense-submit"])) {
         <form method="post">
             <h3 align="center">Expense</h3>
             <br />
-            <?php echo $error; ?>
+            <?php echo $expense_error; ?>
             <div class="form-group">
                 <label>Enter Name</label>
                 <input type="text" name="name" placeholder="Enter Name" class="form-control" value="<?php echo $name; ?>" />
