@@ -224,7 +224,7 @@ if (isset($_POST["delete-expense-submit"])) {
                         <th><input type="checkbox" onclick="toggleCheckbox(this)"></th>
                         <th>Name</th>
                         <th># of Classes Attended</th>
-                        <th>Subject</th>
+                        <th>Password</th>
                         <th>Oustanding Balance ($)</th>
                     </tr>
                     </thead>
