@@ -1,5 +1,18 @@
 <?php
 
+session_start();
+
+// Redirect to login if not logged in or not an admin
+if (!isset($_SESSION['user_name'])) {
+    header("Location: Login.html");
+    exit;
+}
+
+if ($_SESSION['admin_level'] != 1) {
+    header("Location: access_denied.html");
+    exit;
+}
+
 $error = '';
 $error_expense = '';
 $name = '';
