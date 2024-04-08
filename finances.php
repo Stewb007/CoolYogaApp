@@ -231,6 +231,11 @@ if (($handle = fopen("expenses.csv", "r")) !== FALSE) {
     </script>
 </head>
 <body>
+    <div style="position: absolute; top: 10px; right: 10px;">
+        <form action="logout.php" method="post">
+            <button type="submit" class="btn btn-danger">Log Out</button>
+        </form>
+    </div>
 <br />
 <style>
     .container h3, h2 {
