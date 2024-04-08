@@ -896,3 +896,286 @@
         width: 100%;
     }
 }
+
+
+
+/*Schedule*/
+
+body{
+    background-color: #e2e2e2;
+    /* color: #e2e2e2; */
+}
+
+.schedule__page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #e2e2e2;
+}
+
+.schedule__containers{
+    width: 95%;
+    background-color: #e2e2e2;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+/* .week__container{
+    height: 100px;
+} */
+
+.dates__container{
+    height: 200px;
+    align-content: center;
+
+}
+
+.days{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100px;
+    margin: 10px;    
+}
+
+.day{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #00326a;
+    /* border: 2px solid #ccc; */
+    background-color: #e2e2e2;
+    /* border-radius: 15px;
+    margin: 5px; */
+}
+
+.day:hover{
+    color: #fff;
+    background-color: #00326a;
+    /* box-shadow: 0 0 10px 2px #00326a; */
+}
+
+/* .days .today{
+    color: #ab2727;
+} */
+
+.day.active {
+    background-color: #5593DC; /* Change to your desired highlight color */
+    color: #fff; /* Change to your desired text color */
+}
+
+.classes__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.class{
+    width: 100%;
+    height: 120px;
+    color: #00326a;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 7px;
+    border-radius: 10px;
+    box-shadow: -5px 5px 10px 2px #ccc;
+    /* box-shadow: 0 0 10px 2px #ccc; */
+    /* border: 2px solid #ccc; */
+    font-size: 2rem;
+}
+
+
+.class__time{
+    /* font-size: 1.2rem; */
+}
+
+.class__spots{
+    font-size: 1rem;
+}
+
+.book__btn{
+    background-color: #e2e2e2;
+    /* border: 1px solid #00326a; */
+    padding: 10px 25px;
+    border-radius: 5px;
+    margin: 10px;
+    cursor: pointer;
+    border: none;
+}
+
+.book__btn:hover{
+    background-color: #00326a;
+    color: #fff;
+}
+
+.arrow__btn{
+    font-size: 2rem;
+    margin: 10px;
+    color: #00326a;
+}
+
+.arrow__btn:hover{
+    color: #5593DC;
+}
+
+/*Add Class*/
+
+
+.add__class__btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 3rem;
+    height: 3rem;
+    bottom: 1rem;
+    right: 2.5rem;
+    border-radius: 50%;
+    background-color: #5593DC;
+    color: #fff;
+    cursor: pointer;
+    font-size: 36px;
+}
+
+.add__class__btn:hover{
+    background-color: #00326a;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.add__class__btn.active{
+    z-index: 1;
+    bottom: 36.3rem;
+    transition: all 0.5s;
+    transform: rotate(45deg);
+}
+
+.add__class__input{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 5px 30px;
+}
+
+.add__class{
+    background-color: #fff;
+    position: fixed;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    padding: 20px 30px;
+    transition: all 0.5s;
+    /* overflow-y: auto; */
+}
+
+.add__class.active{
+    bottom: 0;
+}
+
+.add__class .heading{
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.add__class__input{
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.add__class__input input,
+.add__class__input label{
+    display: block;
+    width: 100;
+}
+
+.add__class__input input{
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.add__class__input select{
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.add__class__input label{
+    width: max-content;
+    padding: 0 5px;
+    margin-top: 5px;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.add__btn{
+    margin: 0 30px;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add__btn:hover{
+    color: #fff;
+    background-color: #00326a;
+}
+
+.class__backdrop{
+    position: fixed;
+    bottom: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 185%;
+    height: 46rem;
+    border-radius: 50% 50% 0 0;
+    background-color: #fff;
+    transition: all 0.5s;
+}
+
+.class__backdrop.active{
+    bottom: 0;
+}
+
+.backdrop{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px);
+    background-color: #00000023;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.backdrop.active{
+    opacity: 1;
+    visibility: visible;
+}
+
+.class__details{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.class__category{
+    font-size: 1rem;
+    /* color: #5593DC; */
+}
