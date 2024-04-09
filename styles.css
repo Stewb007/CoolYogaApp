@@ -12,7 +12,7 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url('images/yogapic4.jpg') no-repeat #131313;
+    background: url('http://localhost//CoolYogaApp/images/yogapic4.jpg') no-repeat #131313;
     background-size: cover;
     background-position: center;
 }
@@ -692,7 +692,7 @@
             rgba(0, 0 , 0 ,0) 0%, 
             rgba(17,17,17,0.6) 100%
         ), 
-        url('/images/yogapic1.jpg');
+        url('http://localhost/CoolYogaApp/images/yogapic1.jpg');
     background-size: cover;
     position: relative;
     color: #fff;
@@ -704,7 +704,7 @@
             rgba(0 , 0 , 0 ,0) 0%, 
             rgba(17 ,17 ,17 ,0.6) 100%
         ), 
-        url('/images/yogapic2.jpg');
+        url('http://localhost/CoolYogaApp/images/yogapic2.jpg');
  }
 
  .services h2 {
