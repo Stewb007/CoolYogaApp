@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Yoga Studio Website</title>
-        <link rel="stylesheet" href="/CoolYogaApp/styles.css">
+        <link rel="stylesheet" href="http://localhost/CoolYogaApp/styles.css">
         <script src="https://kit.fontawesome.com/bbdcfd916b.js" crossorigin="anonymous"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -70,7 +70,10 @@
                     </div>
                 </div>
             </div>
-            <div class="schedule__containers classes__container">
+            <div class="schedule__containers">
+                <div class="classes__container">
+                    
+                </div>
 
                 <!--Class backdrop-->
                 <div class="backdrop">
@@ -82,41 +85,44 @@
                     <i class="fa-solid fa-plus"></i>
                 </div>
 
+
                 <div class="class__backdrop"></div>
 
                 <div class="schedule__containers add__class">
 
                     <h1 class="heading">Add Class</h1>
-                    <div class="add__class__input">
-                        <label for="class__input">Add class</label>
-                        <input type="text" id="class__input" required>
-                    </div>
-                    <div class="add__class__input">
-                        <label for="category__select">Category</label>
-                        <select name="" id="category__select">
-                            <option value="Meditation">Meditation</option>
-                            <option value="Pilates">Pilates</option>
-                            <option value="Hot Yoga">Hot Yoga</option>
-                            <option value="Begineer Yoga">Beginner Yoga</option>
-                        </select>
-                    </div>
-                    <div class="add__class__input">
-                        <label for="time__input">Time</label>
-                        <input type="text" id="time__input" required>
-                    </div>
-                    <div class="add__class__input">
-                        <label for="location__select">Location</label>
-                        <select name="" id="location__select">
-                            <option value="Leslieville">Leslieville</option>
-                            <option value="Summerhill">Summerhill</option>
-                            <option value="Roncesvalles">Roncesvalles</option>
-                        </select>
-                    </div>
-                    <div class="add__class__input">
-                        <label for="spots__input">Spots</label>
-                        <input type="text" id="spots__input" required>
-                    </div>
-                    <button class="add__btn">Add</button>
+                    <form method="post" action="http://localhost/CoolYogaApp/saveClasses.php">
+                        <div class="add__class__input">
+                            <label for="class__input">Add class</label>
+                            <input type="text" id="class__input" name="className" required>
+                        </div>
+                        <div class="add__class__input">
+                            <label for="category__select">Category</label>
+                            <select name="category" id="category__select">
+                                <option value="Meditation">Meditation</option>
+                                <option value="Pilates">Pilates</option>
+                                <option value="Hot Yoga">Hot Yoga</option>
+                                <option value="Begineer Yoga">Begineer Yoga</option>
+                            </select>
+                        </div>
+                        <div class="add__class__input">
+                            <label for="time__input">Time</label>
+                            <input type="text" id="time__input" name="time" required>
+                        </div>
+                        <div class="add__class__input">
+                            <label for="location__select">Location</label>
+                            <select name="location" id="location__select">
+                                <option value="Leslieville">Leslieville</option>
+                                <option value="Summerhill">Summerhill</option>
+                                <option value="Roncesvalles">Roncesvalles</option>
+                            </select>
+                        </div>
+                        <div class="add__class__input">
+                            <label for="spots__input">Spots</label>
+                            <input type="text" id="spots__input" name="spots" required>
+                        </div>
+                        <button type="submit" class="add__btn">Add</button>
+                    </form>
                 </div>
             </div>
         </div>

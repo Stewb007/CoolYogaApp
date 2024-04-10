@@ -120,6 +120,7 @@ function updateActiveState() {
             eachDay.forEach(day => day.classList.remove("active"));
             day.classList.add("active");
             displayClasses(day.textContent);
+            loadClasses();
         });
     });
 }
@@ -155,83 +156,30 @@ function createClassElement(className, category, time, location, spots, day) {
     return newClass;
 }
 
-// function handleAddButtonClick() {
-//     const className = classInput.value;
-//     const category = categorySelect.value;
-//     const time = timeInput.value;
-//     const location = locationSelect.value;
-//     const spots = spotsInput.value;
-//     // const activeDay = document.querySelector(".day.active").textContent;
+function handleAddButtonClick(event) {
+    event.preventDefault();
 
-//     // Send data to PHP script using fetch API
-//     // fetch("saveClasses.php", {
-//     //     method: "POST",
-//     //     headers: {
-//     //         "Content-Type": "application/x-www-form-urlencoded",
-//     //     },
-//     //     body: `className=${encodeURIComponent(className)}&category=${encodeURIComponent(category)}&time=${encodeURIComponent(time)}&location=${encodeURIComponent(location)}&spots=${encodeURIComponent(spots)}`
-//     // })
-
-//     const data = {classNmae: className, category: category, time: time, location: location, spots: spots};
-
-//     fetch("saveClasses.php", {
-//         method: "POST",
-//         headers: {"Content-Type": "application/json",},
-//         body: JSON.stringify(data),
-//     })
-//     .then(response => {
-//         console.log("Response received:", response);
-//         return response.json();
-//     })
-//     .then(data => {
-//         console.log("Data received:", data);
-//         if (data.success) {
-//             // Handle success
-//             console.log("Class added successfully");
-//             // You may want to perform additional actions here, such as updating the UI
-//         } else {
-//             // Handle error
-//             console.error("Failed to add class:", data.message);
-//         }
-//     })
-//     .catch(error => {
-//         console.error("Error:", error);
-//     });
-    
-
-//     //const newClassElement = createClassElement(className, category, time, location, spots, activeDay);
-
-//     //classesContainer.appendChild(newClassElement);
-// }
-
-function handleAddButtonClick() {
     const className = classInput.value;
     const category = categorySelect.value;
     const time = timeInput.value;
     const location = locationSelect.value;
     const spots = spotsInput.value;
+    const day = document.querySelector(".day.active").textContent; 
 
-    // Send data to PHP script using fetch API
     fetch("saveClasses.php", {
         method: "POST",
         headers: {
-            // "Content-Type": "application/x-www-form-urlencoded",
             "Content-Type": "application/json",
         },
-       // body: `className=${encodeURIComponent(className)}&category=${encodeURIComponent(category)}&time=${encodeURIComponent(time)}&location=${encodeURIComponent(location)}&spots=${encodeURIComponent(spots)}`
-       body: JSON.stringify({
-        className: className,
-        category: category,
-        time: time,
-        location: location,
-        spots: spots
+        body: JSON.stringify({
+            className: className,
+            category: category,
+            time: time,
+            location: location,
+            spots: spots,
+            day: day 
+        })
     })
-    
-    
-    
-    })
-
-
     .then(response => {
         if (!response.ok) {
             throw new Error("Failed to add class.");
@@ -240,24 +188,36 @@ function handleAddButtonClick() {
     })
     .then(data => {
         console.log(data); 
-        loadClasses();  //Loads classes after adding a new class
-
+        loadClasses(); 
     })
     .catch(error => {
         console.error("Error:", error);
     });
 }
 
+function displayClasses(day) {
+    const allClasses = document.querySelectorAll(".class");
+    allClasses.forEach(cls => {
+        if (cls.dataset.day === day) { 
+            cls.style.display = "flex";
+        } else {
+            cls.style.display = "none";
+        }
+    });
+}
+
+addClassBtn.addEventListener("click", handleAddButtonClick);
+
 function loadClasses() {
-    fetch("loadClasses.php")
+    const activeDay = document.querySelector(".day.active").textContent; 
+    fetch(`loadClasses.php?date=${activeDay}`) 
     .then(response => response.json())
     .then(classes => {
         // Clear existing classes
         classesContainer.innerHTML = "";
         // Add newly loaded classes
         classes.forEach(cls => {
-            const [time, className, category, location, spots] = cls;
-            const day = document.querySelector(".day.active").textContent;
+            const [day, time, className, category, location, spots] = cls;
             const newClassElement = createClassElement(className, category, time, location, spots, day);
             classesContainer.appendChild(newClassElement);
         });
@@ -276,7 +236,3 @@ addClassBtn.addEventListener("click", handleAddButtonClick);
 addClassBtn.addEventListener("click", toggleAddClassForm);
 
 updateActiveState();
-
-
-
-
