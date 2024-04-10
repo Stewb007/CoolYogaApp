@@ -1,18 +1,16 @@
 <?php
 
-header('Content-Type: application/json');
+//error_reporting(E_ALL);
+//ini_set('display_errors', 1);
 
-$date = $_GET['date'];
+header('Content-Type: application/json');
 
 $classes = [];
 $file = fopen('classes.csv', 'r');
 while (($line = fgetcsv($file)) !== false) {
-    if ($line[0] === $date) {
-        $classes[] = $line;
-    }
+    $classes[] = $line;
 }
 fclose($file);
 
 echo json_encode($classes);
 ?>
-

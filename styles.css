@@ -1071,6 +1071,7 @@ body{
     width: 100%;
     padding: 20px 30px;
     transition: all 0.5s;
+    /* overflow-y: auto; */
 }
 
 .add__class.active{
@@ -1178,24 +1179,3 @@ body{
     font-size: 1rem;
     /* color: #5593DC; */
 }
-
-.no__classes__message {
-    font-size: 2rem;
-    color: #131313; 
-}
-
-/* .add__class__input {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.add__class__input select {
-    width: calc(50% - 10px);
-}
-
-.add__class__input label {
-    width: calc(50% - 10px);
-    text-align: right;
-    padding-right: 10px;
-} */
