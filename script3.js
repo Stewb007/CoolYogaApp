@@ -50,6 +50,12 @@ function updateDates(){
             dayInput = dayInput - daysInMonth[0];
             monthInput = 0;
         }
+
+        //make sure that todays date is the active date
+        const today = new Date(); 
+        if (today.getDate() === dayInput && today.getMonth() === monthInput) { 
+            aDay.classList.add("active"); 
+        }
         
         aDay.textContent = daysOfWeek[i] + " " + months[monthInput] + " " + dayInput;
 
@@ -68,7 +74,8 @@ nextButton.addEventListener("click", function(){
         dayOfMonth = dayOfMonth - daysInMonth[month];
         month = 0;
     }
-    updateDates();
+    //updateDates();
+    updateArrowClasses();
 });
 
 prevButton.addEventListener("click", function(){
@@ -80,9 +87,15 @@ prevButton.addEventListener("click", function(){
         dayOfMonth = daysInMonth[month - 1] + dayOfMonth;
         month = 11;
     }
-    updateDates();
+    //updateDates();
+    updateArrowClasses();
 });
 
+//reloads classes so that that week has active classes
+function updateArrowClasses() {
+    updateDates();
+    loadClasses();
+}
 
 
 /*add class*/
@@ -188,6 +201,9 @@ function handleAddButtonClick(event) {
     })
     .then(data => {
         console.log(data); 
+        classInput.value = "";
+        timeInput.value = "";
+        spotsInput.value = "";
         loadClasses(); 
     })
     .catch(error => {
@@ -208,24 +224,35 @@ function displayClasses(day) {
 
 addClassBtn.addEventListener("click", handleAddButtonClick);
 
+
+
 function loadClasses() {
-    const activeDay = document.querySelector(".day.active").textContent; 
-    fetch(`loadClasses.php?date=${activeDay}`) 
+    const activeDay = document.querySelector(".day.active").textContent;
+
+    fetch("loadClasses.php?date=" + encodeURIComponent(activeDay))
     .then(response => response.json())
     .then(classes => {
         // Clear existing classes
         classesContainer.innerHTML = "";
-        // Add newly loaded classes
-        classes.forEach(cls => {
-            const [day, time, className, category, location, spots] = cls;
-            const newClassElement = createClassElement(className, category, time, location, spots, day);
-            classesContainer.appendChild(newClassElement);
-        });
+        
+        if (classes.length === 0) {//if no classes
+            const message = document.createElement("div");
+            message.classList.add("no__classes__message");
+            message.textContent = "No Classes Yet";
+            classesContainer.appendChild(message);
+        } else { //load classes
+            classes.forEach(cls => {
+                const [day, time, className, category, location, spots] = cls;
+                const newClassElement = createClassElement(className, category, time, location, spots, activeDay);
+                classesContainer.appendChild(newClassElement);
+            });
+        }
     })
     .catch(error => {
         console.error("Error:", error);
     });
 }
+
 
 window.addEventListener("DOMContentLoaded", () => {
     loadClasses();
@@ -236,3 +263,82 @@ addClassBtn.addEventListener("click", handleAddButtonClick);
 addClassBtn.addEventListener("click", toggleAddClassForm);
 
 updateActiveState();
+
+/*select time*/
+
+
+// // Function to populate time select options in 15-minute intervals
+// function populateTimeSelect(selectElement) {
+//     for (let hours = 0; hours < 24; hours++) {
+//         for (let minutes = 0; minutes < 60; minutes += 15) {
+//             const time = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+//             const option = document.createElement('option');
+//             option.value = time;
+//             option.textContent = time;
+//             selectElement.appendChild(option);
+//         }
+//     }
+// }
+
+// // Populate start time and end time select options
+// const startTimeSelect = document.getElementById('start-time');
+// const endTimeSelect = document.getElementById('end-time');
+// populateTimeSelect(startTimeSelect);
+// populateTimeSelect(endTimeSelect);
+
+// // Event listener for calculating duration
+// endTimeSelect.addEventListener('change', () => {
+//     const startTime = startTimeSelect.value.split(':').map(Number);
+//     const endTime = endTimeSelect.value.split(':').map(Number);
+//     const startMinutes = startTime[0] * 60 + startTime[1];
+//     const endMinutes = endTime[0] * 60 + endTime[1];
+//     const durationMinutes = endMinutes - startMinutes;
+//     const hours = Math.floor(durationMinutes / 60);
+//     const minutes = durationMinutes % 60;
+//     document.getElementById('duration').textContent = `${hours} hours ${minutes} minutes`;
+// });
+
+// // Function to handle adding class form submission
+// function handleAddClassFormSubmission(event) {
+//     event.preventDefault();
+
+//     const formData = new FormData(event.target);
+//     const startTime = formData.get('start-time');
+//     const endTime = formData.get('end-time');
+//     const className = formData.get('className');
+//     const category = formData.get('category');
+//     const location = formData.get('location');
+//     const spots = formData.get('spots');
+//     const day = document.querySelector('.day.active').textContent;
+
+//     const classData = {
+//         className,
+//         category,
+//         startTime,
+//         endTime,
+//         location,
+//         spots,
+//         day
+//     };
+
+//     fetch('saveClasses.php', {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify(classData)
+//     })
+//     .then(response => response.json())
+//     .then(data => {
+//         console.log(data); 
+//         classInput.value = '';
+//         loadClasses(); 
+//     })
+//     .catch(error => {
+//         console.error('Error:', error);
+//     });
+// }
+
+// // Add event listener to handle form submission
+// const addClassForm2 = document.querySelector('form');
+// addClassForm2.addEventListener('submit', handleAddClassFormSubmission);
