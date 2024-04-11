@@ -260,6 +260,25 @@ if (($handle = fopen("expenses.csv", "r")) !== FALSE) {
     .table-container {
         margin-bottom: 20px;
     }
+
+    #pdfGenerator {
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-size: 14px;
+    color: #000;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    background-color: turquoise;
+}
+
+#pdfGenerator:hover {
+    background-color: #008CBA;
+    color: white;
+}
 </style>
 <div class="container">
     <h2 align="center">Cool Yoga App Database</h2>
@@ -273,9 +292,9 @@ if (($handle = fopen("expenses.csv", "r")) !== FALSE) {
                     <tr style="font-weight: bold; color: white;">
                         <th><input type="checkbox" onclick="toggleCheckbox(this)"></th>
                         <th>Name</th>
-                        <th># of Classes Attended</th>
+                        <th>Email</th>
                         <th>Password</th>
-                        <th>Oustanding Balance ($)</th>
+                        <th>Secret Question Answer</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -396,6 +415,7 @@ if (($handle = fopen("expenses.csv", "r")) !== FALSE) {
             </form>
         </div>
     </div>
+    <button id="pdfGenerator">Generate PDF</button>
     <div class="row">
         <div class="col-md-12" style="margin-top: 50px;">
             <h3 align="center">Expense Proportion</h3>
@@ -434,6 +454,9 @@ window.onload = function() {
             d3.selectAll("#pie-chart text").style("fill", "#fff").style("font-weight", "bold");
         }
     });
+    document.getElementById('pdfGenerator').addEventListener('click', function() {
+    window.open('generate_pdf.php');
+});
 }
 </script>
 </body>
