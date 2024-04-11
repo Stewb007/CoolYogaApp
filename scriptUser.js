@@ -206,7 +206,7 @@ function createClassElement(className, category, time, location, spots, day) {
                     name: 'Grace',
                     type: 'Fee',
                     confirmation: 'N',
-                    amount: '-$20'
+                    amount: '-20'
                 })
             })
             .then(response => response.text())
